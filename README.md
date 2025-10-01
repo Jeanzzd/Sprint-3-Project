@@ -1,3 +1,5 @@
+Nome dos integrantes:Jean Roberto Gomes, RM94418; Giovanna Laturague Bueno, RM556242
+
 Este projeto é uma API RESTful desenvolvida em C# .NET 6 que simula o backend de um sistema de e-commerce.
 O sistema gerencia usuários, produtos e pedidos, incluindo o relacionamento N:N (muitos-para-muitos) entre pedidos e produtos. 
 Optamos por utilizar uma WEBAPI pela organização que ela proporcina e fica mais facil adicionar coisas novas.
