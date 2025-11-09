@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Sprint_3.DTOs;
 using Sprint_3.Repository.Interface;
 
@@ -68,6 +69,8 @@ namespace Sprint_3.Controllers
         /// <returns>Pedido criado</returns>
         /// <response code="201">Pedido criado com sucesso</response>
         /// <response code="400">Dados inválidos</response>
+        /// 
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<PedidoDTO>> AdicionarPedido([FromBody] CriarPedidoDTO dto)
         {
@@ -98,6 +101,8 @@ namespace Sprint_3.Controllers
         /// <returns>Pedido atualizado</returns>
         /// <response code="200">Pedido atualizado com sucesso</response>
         /// <response code="404">Pedido não encontrado</response>
+        /// 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<ActionResult<PedidoDTO>> AtualizarPedido(int id, [FromBody] UpdatePedidoDTO dto)
         {
@@ -113,6 +118,8 @@ namespace Sprint_3.Controllers
         /// <returns>Pedido deletado</returns>
         /// <response code="200">Pedido deletado com sucesso</response>
         /// <response code="404">Pedido não encontrado</response>
+        /// 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<PedidoDTO>> DeletarPedido(int id)
         {

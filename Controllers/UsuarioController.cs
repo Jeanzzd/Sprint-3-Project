@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Sprint_3.DTOs;
 using Sprint_3.Repository.Interface;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Sprint_3.Controllers
+namespace Sprint_3.Controllers.v1
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -66,6 +67,8 @@ namespace Sprint_3.Controllers
         /// <returns>Usuário criado</returns>
         /// <response code="201">Usuário criado com sucesso</response>
         /// <response code="400">Dados inválidos</response>
+        /// 
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<UsuarioDTO>> AdicionarUsuario([FromBody] CriarUsuarioDTO dto)
         {
@@ -84,6 +87,8 @@ namespace Sprint_3.Controllers
         /// <returns>Usuário atualizado</returns>
         /// <response code="200">Usuário atualizado com sucesso</response>
         /// <response code="404">Usuário não encontrado</response>
+        /// 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<ActionResult<UsuarioDTO>> AtualizarUsuario(int id, [FromBody] UpdateUsuarioDTO dto)
         {
@@ -101,6 +106,8 @@ namespace Sprint_3.Controllers
         /// <returns>Usuário deletado</returns>
         /// <response code="200">Usuário deletado com sucesso</response>
         /// <response code="404">Usuário não encontrado</response>
+        /// 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<UsuarioDTO>> DeletarUsuario(int id)
         {

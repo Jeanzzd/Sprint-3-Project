@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Sprint_3.DTOs;
 using Sprint_3.Repository.Interface;
 using System.Collections.Generic;
@@ -61,6 +62,7 @@ namespace Sprint_3.Controllers
         /// <returns>Produto criado</returns>
         /// <response code="201">Produto criado com sucesso</response>
         /// <response code="400">Dados inválidos</response>
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<ProdutoDTO>> AdicionarProduto([FromBody] CriarProdutoDTO dto)
         {
@@ -80,6 +82,8 @@ namespace Sprint_3.Controllers
         /// <response code="200">Produto atualizado com sucesso</response>
         /// <response code="400">Dados inválidos</response>
         /// <response code="404">Produto não encontrado</response>
+        /// 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<ActionResult<ProdutoDTO>> AtualizarProduto(int id, [FromBody] UpdateProdutoDTO dto)
         {
@@ -98,6 +102,8 @@ namespace Sprint_3.Controllers
         /// <returns>Produto deletado</returns>
         /// <response code="200">Produto deletado com sucesso</response>
         /// <response code="404">Produto não encontrado</response>
+        /// 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<ProdutoDTO>> DeletarProduto(int id)
         {

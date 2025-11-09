@@ -11,5 +11,7 @@ namespace Sprint_3.Repository.Interface
         Task<UsuarioDTO> AdicionarUsuario(CriarUsuarioDTO usuario);
         Task<UsuarioDTO> AtualizarUsuario(int id, UpdateUsuarioDTO usuario);
         Task<UsuarioDTO> DeletarUsuario(int id);
+
+        Task<Usuario?> Login(string email);
     }
 }

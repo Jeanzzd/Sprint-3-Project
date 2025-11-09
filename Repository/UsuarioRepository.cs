@@ -113,6 +113,14 @@ namespace Sprint_3.Repository
                 Email = usuario.Email,
                 QuantidadePedidos = usuario.Pedidos.Count
             };
+
+
+        }
+
+        public async Task<Usuario?> Login(string email)
+        {
+            return await _context.Usuario
+                .FirstOrDefaultAsync(u => u.Email == email);
         }
     }
 }

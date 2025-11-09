@@ -13,7 +13,7 @@ namespace Sprint_3.Models
         public int ProdutoId { get; set; }
         public Produtos Produto { get; set; } = null!;
 
-        // Quantidade de cada produto no pedido
+    
         public int Quantidade { get; set; }
 
     }
