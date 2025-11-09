@@ -1,79 +1,65 @@
-Nome dos integrantes:Jean Roberto Gomes, RM94418; Giovanna Laturague Bueno, RM556242
+🛒 API E-Commerce RESTful
 
-Este projeto é uma API RESTful desenvolvida em C# .NET 6 que simula o backend de um sistema de e-commerce.
-O sistema gerencia usuários, produtos e pedidos, incluindo o relacionamento N:N (muitos-para-muitos) entre pedidos e produtos. 
-Optamos por utilizar uma WEBAPI pela organização que ela proporcina e fica mais facil adicionar coisas novas.
+**Importante: temos um usuario ja criado para você acessar com autenticação professor use o Professor@gmail.com e pegue o token e cole no authorize do swagger
 
- Tecnologias Utilizadas
+Integrantes:
+Jean Roberto Gomes, RM94418
+Giovanna Laturague Bueno, RM556242
+Esta é uma API RESTful desenvolvida em C# .NET 6 que simula o backend de um sistema de e-commerce. O sistema gerencia usuários, produtos e pedidos, 
+incluindo o relacionamento N:N entre pedidos e produtos. A API utiliza Web API, facilitando a manutenção, extensão e integração com front-end.
 
-C# .NET 6
-ASP.NET Core Web API
+🛠 Tecnologias Utilizadas
+C# .NET 8 com ASP.NET Core Web API
 Entity Framework Core (Code First + Migrations)
 Swagger / OpenAPI (documentação interativa)
 SQL Server (ou outro banco configurado no dbContext)
-DTOs (Data Transfer Objects) para segurança e organização dos dados
+DTOs (Data Transfer Objects) para organização e segurança dos dados
 Repository Pattern para separação de responsabilidades
-HATEOAS para enriquecer as respostas com links de navegação
+HATEOAS para respostas enriquecidas com links de navegação
+JWT (JSON Web Token) para autenticação e autorização
+Health Checks para monitoramento da API
+Testes Unitários com xUnit
 
- Funcionalidades
 
-Usuários
+🚀 Funcionalidades
+👤 Usuários
 Criar, listar, atualizar e deletar usuários
+Acesso protegido via JWT
 
-Produtos
+📦 Produtos
 Criar, listar, atualizar e deletar produtos
 
-Pedidos
+📝 Pedidos
 Criar pedidos vinculados a usuários e produtos
 Calcular automaticamente o valor total do pedido
 Listar pedidos com seus respectivos produtos
 Atualizar ou deletar pedidos
 
-Relacionamento N:N
+🔄 Relacionamento N:N
 Implementado via tabela intermediária PedidoProduto
 
- Como Executar o Projeto?
+💻 Monitoramento
+Endpoint /health para Health Checks da API
 
-Exemplos de payloas para os metodos post e updates (Estão disponivel os payloads estão dentros dos metodos nos swagger), metodos gets apenas executar
+🔐 Segurança
+Autenticação e autorização via JWT
+Mensagens customizadas:
+401 Unauthorized → usuário não autenticado
 
-Pedido -
-{
-  "usuarioId": 0,
-  "produtos": [
-    {
-      "produtoId": 0,
-      "quantidade": 0
-    }
-  ]
-}
+⚡ Como Executar o Projeto
 
-Produto -
-{
-  "nome": "string",
-  "preco": 0
-}
+Clone o repositório:
+git clone 
 
-Usuario -
-{
-  "nome": "string",
-  "email": "user@example.com"
-}
+Execute a API:
+dotnet run
 
-Metodos updates abaixo 
+Verifique o Health Check: https://localhost:<porta>/health
 
-Usuario - 
-{
-  "nome": "string",
-  "email": "user@example.com"
-}
+Garantem integridade de:
 
-Produto - 
-{
-  "nome": "string",
-  "preco": 0
-}
+Criação de usuários e produtos
 
-Pedido -
-{
-  "valorTotal": 0
-}
+Cálculo de pedidos
+
+Validações de JWT
